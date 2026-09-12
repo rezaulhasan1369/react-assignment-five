@@ -2,10 +2,14 @@ import type { Technology } from "../types/technology";
 
 interface StackPanelProps {
   selectedTechnologies: Technology[];
+  onRemove: (technology: Technology) => void;
+  onRemoveAll: () => void;
 }
 
 function StackPanel({
   selectedTechnologies,
+  onRemove,
+  onRemoveAll,
 }: StackPanelProps) {
   const selectedCount = selectedTechnologies.length;
 
@@ -63,7 +67,7 @@ function StackPanel({
                 />
               </div>
 
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold text-slate-900">
                   {technology.name}
                 </p>
@@ -72,6 +76,15 @@ function StackPanel({
                   {technology.category}
                 </p>
               </div>
+
+              <button
+                type="button"
+                onClick={() => onRemove(technology)}
+                aria-label={`Remove ${technology.name} from stack`}
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-lg leading-none text-slate-400 transition-colors hover:bg-red-50 hover:text-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+              >
+                ×
+              </button>
             </li>
           ))}
         </ul>
@@ -79,8 +92,13 @@ function StackPanel({
 
       <button
         type="button"
-        disabled
-        className="mt-5 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-100 px-4 py-2.5 text-sm font-semibold text-slate-400"
+        onClick={onRemoveAll}
+        disabled={selectedCount === 0}
+        className={`mt-5 w-full rounded-lg px-4 py-2.5 text-sm font-semibold transition ${
+          selectedCount === 0
+            ? "cursor-not-allowed border border-slate-200 bg-slate-100 text-slate-400"
+            : "brand-gradient text-white hover:opacity-90"
+        }`}
       >
         Remove All
       </button>

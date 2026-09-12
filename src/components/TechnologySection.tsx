@@ -55,6 +55,22 @@ function TechnologySection() {
     toast.success(`${technology.name} added to your stack.`);
   };
 
+  const handleRemoveTechnology = (technology: Technology) => {
+  setSelectedTechnologies((currentTechnologies) =>
+    currentTechnologies.filter(
+      (currentTechnology) =>
+        currentTechnology.id !== technology.id,
+    ),
+  );
+
+  toast.info(`${technology.name} removed from your stack.`);
+};
+
+const handleRemoveAllTechnologies = () => {
+  setSelectedTechnologies([]);
+  toast.info("All technologies removed from your stack.");
+};
+
   return (
     <section
       id="technologies"
@@ -105,8 +121,10 @@ function TechnologySection() {
             </div>
 
             <div className="lg:sticky lg:top-24">
-              <StackPanel
+             <StackPanel
   selectedTechnologies={selectedTechnologies}
+  onRemove={handleRemoveTechnology}
+  onRemoveAll={handleRemoveAllTechnologies}
 />
             </div>
           </div>
