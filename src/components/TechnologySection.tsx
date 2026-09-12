@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import type { Technology } from "../types/technology";
+import {useEffect, useState } from "react";
+import type { Technology} from "../types/technology";
+import TechnologyCard from "./TechnologyCard";
 
 function TechnologySection() {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
@@ -10,8 +11,7 @@ function TechnologySection() {
     fetch("/technologies.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to load technologies.");
-        }
+          throw new Error("Failed to load technologies."); }
 
         return response.json();
       })
@@ -31,18 +31,54 @@ function TechnologySection() {
   }, []);
 
   return (
-    <section id="technologies">
-      <h2>Explore the Technologies</h2>
+    <section
+      id="technologies"
+      aria-labelledby="technologies-heading"
+      className="scroll-mt-14 bg-slate-50 px-5 py-16 lg:scroll-mt-20 lg:px-8 lg:py-24"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center lg:text-left">
+          <h2
+            id="technologies-heading"
+            className="text-3xl font-extrabold tracking-tight text-slate-950 lg:text-4xl"
+          >
+            Explore the{" "}
+            <span className="brand-gradient-text">Technologies</span>
+          </h2>
 
-      {isLoading && <p>Loading technologies...</p>}
+          <p className="mt-3 text-sm leading-6 text-slate-600 lg:text-base">
+            Pick one technology, review its details and start building your
+            ideal development stack.
+          </p>
+        </div>
 
-      {error && <p>{error}</p>}
+        {isLoading && (
+          <p className="text-center text-sm text-slate-500">
+            Loading technologies...
+          </p>
+        )}
 
-      {!isLoading && !error && (
-        <p>{technologies.length} technologies loaded successfully.</p>
-      )}
+        {error && (
+          <p
+            role="alert"
+            className="rounded-lg border border-red-200 bg-red-50 p-4 text-center text-sm text-red-700"
+          >
+            {error}
+          </p>
+        )}
+
+        {!isLoading && !error && (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {technologies.map((technology) => (
+              <TechnologyCard
+                key={technology.id}
+                technology={technology}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
-  );
-}
+  );}
 
 export default TechnologySection;
