@@ -1,6 +1,7 @@
 import {useEffect, useState } from "react";
 import type { Technology} from "../types/technology";
 import TechnologyCard from "./TechnologyCard";
+import StackPanel from "./StackPanel";
 
 function TechnologySection() {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
@@ -68,15 +69,21 @@ function TechnologySection() {
         )}
 
         {!isLoading && !error && (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {technologies.map((technology) => (
-              <TechnologyCard
-                key={technology.id}
-                technology={technology}
-              />
-            ))}
-          </div>
-        )}
+  <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_280px]">
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {technologies.map((technology) => (
+        <TechnologyCard
+          key={technology.id}
+          technology={technology}
+        />
+      ))}
+    </div>
+
+    <div className="lg:sticky lg:top-24">
+      <StackPanel />
+    </div>
+  </div>
+)}
       </div>
     </section>
   );}
