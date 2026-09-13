@@ -4,7 +4,7 @@ import type { Technology } from "../types/technology";
 import StackPanel from "./StackPanel";
 import TechnologyCard from "./TechnologyCard";
 
-function TechnologySection(){
+function TechnologySection() {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [selectedTechnologies, setSelectedTechnologies] = useState<
     Technology[]
@@ -56,20 +56,20 @@ function TechnologySection(){
   };
 
   const handleRemoveTechnology = (technology: Technology) => {
-  setSelectedTechnologies((currentTechnologies) =>
-    currentTechnologies.filter(
-      (currentTechnology) =>
-        currentTechnology.id !== technology.id,
-    ),
-  );
+    setSelectedTechnologies((currentTechnologies) =>
+      currentTechnologies.filter(
+        (currentTechnology) =>
+          currentTechnology.id !== technology.id,
+      ),
+    );
 
-  toast.info(`${technology.name} removed from your stack.`);
-};
+    toast.info(`${technology.name} removed from your stack.`);
+  };
 
-const handleRemoveAllTechnologies = () => {
-  setSelectedTechnologies([]);
-  toast.info("All technologies removed from your stack.");
-};
+  const handleRemoveAllTechnologies = () => {
+    setSelectedTechnologies([]);
+    toast.info("All technologies removed from your stack.");
+  };
 
   return (
     <section
@@ -88,8 +88,8 @@ const handleRemoveAllTechnologies = () => {
           </h2>
 
           <p className="mt-3 text-sm leading-6 text-slate-600 lg:text-base">
-            Pick one technology, review its details and start building your
-            ideal development stack.
+            Pick one technology, review its details and start building
+            your ideal development stack.
           </p>
         </div>
 
@@ -116,21 +116,26 @@ const handleRemoveAllTechnologies = () => {
                   key={technology.id}
                   technology={technology}
                   onAdd={handleAddTechnology}
+                  isAdded={selectedTechnologies.some(
+                    (selectedTechnology) =>
+                      selectedTechnology.id === technology.id,
+                  )}
                 />
               ))}
             </div>
 
             <div className="lg:sticky lg:top-24">
-             <StackPanel
-  selectedTechnologies={selectedTechnologies}
-  onRemove={handleRemoveTechnology}
-  onRemoveAll={handleRemoveAllTechnologies}
-/>
+              <StackPanel
+                selectedTechnologies={selectedTechnologies}
+                onRemove={handleRemoveTechnology}
+                onRemoveAll={handleRemoveAllTechnologies}
+              />
             </div>
           </div>
         )}
       </div>
     </section>
-    );}
+  );
+}
 
 export default TechnologySection;

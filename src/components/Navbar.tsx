@@ -35,9 +35,9 @@ function Navbar() { const [isMenuOpen, setIsMenuOpen] = useState(false);
 
           <span className="hidden text-xl font-bold tracking-tight text-slate-900 sm:inline">
             Dev{" "}
-            <span className="text-pink-600">
-              Stack
-            </span>
+            <span className="brand-gradient-text">
+  Stack
+</span>
           </span>
         </a>
 

@@ -22,7 +22,7 @@ function Footer() {
               </span>
 
               <span className="text-lg font-bold text-slate-900">
-                Dev <span className="text-pink-600">Stack</span>
+                Dev <span className="brand-gradient-text">Stack</span>
               </span>
             </a>
 
