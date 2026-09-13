@@ -17,6 +17,25 @@ Build stack: Add technologies, remove individual items, or clear the whole stack
 Responsive interface: Use the catalogue and stack panel on mobile, tablet, and desktop screens. Loading and action messages keep users informed.
 
 
+
+## Run Locally
+
+```bash
+git clone https://github.com/rezaulhasan1369/react-assignment-five.git
+cd react-assignment-five
+npm install
+npm run dev
+```
+
+On Windows PowerShell, use `npm.cmd install` and `npm.cmd run dev` if `npm` is blocked by the script execution policy.
+
+## Links
+
+- GitHub: https://github.com/rezaulhasan1369/react-assignment-five
+- Live site: https://earnest-gingersnap-7bad9b.netlify.app/
+
+
+
 ## React Questions
 
  1. What is JSX, and why is it used in React?
