@@ -1,9 +1,6 @@
 import type { Technology } from "../types/technology";
 
-interface TechnologyCardProps {
-  technology: Technology;
-  onAdd: (technology: Technology) => void;
-}
+interface TechnologyCardProps {technology: Technology;onAdd: (technology: Technology) => void;}
 
 function TechnologyCard({technology,onAdd,}: TechnologyCardProps) {
   return (
@@ -70,7 +67,7 @@ function TechnologyCard({technology,onAdd,}: TechnologyCardProps) {
 >
   Add to Stack
 </button>
-  </article>
-);}
+  </article> 
+  );}
 
 export default TechnologyCard;

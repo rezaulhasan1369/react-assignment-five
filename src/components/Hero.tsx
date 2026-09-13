@@ -1,6 +1,6 @@
 import heroImage from "../assets/hero.png";
 
-function Hero() {
+function Hero(){
   return (
     <section
       id="home"
@@ -54,7 +54,6 @@ function Hero() {
         </div>
       </div>
     </section>
-  );
-}
+  );}
 
 export default Hero;

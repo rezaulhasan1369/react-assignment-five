@@ -11,22 +11,19 @@
     #ff5722 0%,
     #e91e63 55%,
     #9c27b0 100%
-  );
-}
+  );}
 
 * {box-sizing: border-box;}
 
 html {scroll-behavior: smooth;}
 
-body {
-  margin: 0;
+body {margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #ffffff;
-}
+  background-color: #ffffff;}
 
 button,a {
-  font: inherit;}
+font: inherit;}
 
 button {cursor: pointer;}
 

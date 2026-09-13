@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 
-function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+function Navbar() { const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white">
@@ -142,10 +141,8 @@ function Navbar() {
         Contact
       </a>
     </div>
-  </div>
-)}
+  </div> )}
     </header>
-  );
-}
+    );}
 
 export default Navbar;

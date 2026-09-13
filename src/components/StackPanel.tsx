@@ -3,14 +3,13 @@ import type { Technology } from "../types/technology";
 interface StackPanelProps {
   selectedTechnologies: Technology[];
   onRemove: (technology: Technology) => void;
-  onRemoveAll: () => void;
-}
+  onRemoveAll: () => void; }
 
-function StackPanel({
+function StackPanel(
+    {
   selectedTechnologies,
   onRemove,
-  onRemoveAll,
-}: StackPanelProps) {
+  onRemoveAll,}: StackPanelProps) {
   const selectedCount = selectedTechnologies.length;
 
   return (
@@ -103,7 +102,6 @@ function StackPanel({
         Remove All
       </button>
     </aside>
-  );
-}
+    );}
 
 export default StackPanel;

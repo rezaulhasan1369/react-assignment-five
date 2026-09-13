@@ -4,7 +4,7 @@ import type { Technology } from "../types/technology";
 import StackPanel from "./StackPanel";
 import TechnologyCard from "./TechnologyCard";
 
-function TechnologySection() {
+function TechnologySection(){
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [selectedTechnologies, setSelectedTechnologies] = useState<
     Technology[]
@@ -110,7 +110,7 @@ const handleRemoveAllTechnologies = () => {
 
         {!isLoading && !error && (
           <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_280px]">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {technologies.map((technology) => (
                 <TechnologyCard
                   key={technology.id}
@@ -131,7 +131,6 @@ const handleRemoveAllTechnologies = () => {
         )}
       </div>
     </section>
-  );
-}
+    );}
 
 export default TechnologySection;
